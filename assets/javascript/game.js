@@ -89,18 +89,18 @@ function checkWin() {
   if (guessesLeft <= 0) {
     document.getElementById("text").style.display = "block";
     document.getElementById("image").style.display = "block";
-    document.getElementById("text").innerHTML = "You Lose Hit Enter To Try Again!";
+    document.getElementById("text").innerHTML = "You Lose game will reset in 5 seconds";
     document.getElementById("image").innerHTML = ("<IMG src='https://media0.giphy.com/media/cr9vIO7NsP5cY/giphy.gif'>");
-
+    setTimeout(startGame, 5000);
   }
   else if (answerArray.indexOf("_") == -1) {
     wins++;
     document.getElementById("text").style.display = "block";
     document.getElementById("image").style.display = "block";
-    document.getElementById("text").innerHTML = "WIN WIN WIN WIN";
+    document.getElementById("text").innerHTML = "You Won game will reset in 5 seconds";
     document.getElementById("image").innerHTML = ("<IMG src='https://akns-images.eonline.com/eol_images/Entire_Site/201621/rs_320x240-160301083538-legends3.gif?fit=inside|900:auto&output-quality=90'>");
     document.getElementById("win-counter").innerHTML = wins;
-
+    setTimeout(startGame, 5000);
   }
 }
 

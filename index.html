@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   <title>Word Guess Game</title>
 </head>
 <body>
@@ -16,9 +17,9 @@
     <div class="row">
       <div class="col-lg-12 text-center">
 
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid content">
           <div class="container">
-            <h1 class="display-3">HangMAN!</h1>
+            <h1 class="display-3">HangMan!</h1>
             <p class="lead">90's Cartoons!</p>
           </div>
         </div>
@@ -29,7 +30,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
 
-        <div id="cartoon-name">filler</div>
+        <p id=""></p>
       
       </div>
     </div>
@@ -41,27 +42,30 @@
       <div class="col-lg-12">
         <div class="row justify-content-center">
 
-          <div class="col-lg-4 border text-center">
+          <div class="col-lg-6 border text-center game-content">
 
-            <div id="image"></div>
+            <div id="text">filler</div>
+            <div id="image">filler</div>
           
           </div>
 
-          <div class="col-lg-4 border text-center">
+          <div class="col-lg-1"></div>
 
-            <div class="instructions">Press Any Letter Key to Begin! <br> Press Enter to reset game!</div>
+          <div class="col-lg-4 border text-center game-content">
 
-            <div class="text-win">Wins</div>
-            <div id="win-counter">filler</div>
+            <p class="instructions">Press Any Letter Key to Begin! <br> Press Enter to reset game!</p>
 
-            <div class="Current Word">Current Word</div>
-            <div id="current-word"></div>
+            <p class="text-win">Wins</p>
+            <p id="win-counter">filler</p>
 
-            <div class"guesses">Number of Guesses Remaining</div>
-            <div id="guess-counter">filler</div>
+            <p class="Current Word">Current Word</p>
+            <p id="current-word"></p>
 
-            <div class="letters-guessed">Letters Guessed</div>
-            <div id="current-guess"></div>
+            <p class"guesses">Number of Guesses Remaining</p>
+            <p id="guess-counter">filler</p>
+
+            <p class="letters-guessed">Letters Guessed</p>
+            <p id="current-guess"></p>
           
           </div>
 

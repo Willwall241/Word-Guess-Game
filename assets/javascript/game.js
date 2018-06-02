@@ -1,16 +1,28 @@
 // Declare variables
-var gameWords = ["rugrats", "doug", "hey arnold", "swat cats",];
+var gameWords = ["rugrats", "doug", "animaniacs", "gargoyles", "daria", "pokemon", "catdog", "aladdin", "futurama"];
 var word;
 var answerArray;
 var wrongArray;
 var guessesLeft;
 var wins = 0;
 
+  
 
 // Function to start game
 function startGame() {
+
+
+var x = document.getElementById("cartoon-name");
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
   // Set word to random pick from gameWords array
   word = gameWords[Math.floor(Math.random() * gameWords.length)];
+  console.log(word);
 
   // Set answerArray to empty array
   answerArray = [];
@@ -40,55 +52,53 @@ function startGame() {
 // Function to update guesses
 function updateGuess(guess) {
 
-  // Decrease amount of guesses left
-  guessesLeft--;
-  // Show updated guesses left
-  document.getElementById("guess-counter").innerHTML = guessesLeft;
 
   // For loop to check if guess is correct
-  if (word.indexOf(guess) === -1) {
+  if (word.indexOf(guess) === -1 && wrongArray.indexOf(guess) === -1) {
     wrongArray.push(guess);
     document.getElementById("current-guess").innerHTML = wrongArray;
-
+    guessesLeft--;
+    document.getElementById("guess-counter").innerHTML = guessesLeft;
   }
   else {
     for (var j = 0; j < word.length; j++) {
       if (word[j] === guess) {
         answerArray[j] = guess;
         console.log(answerArray);
+        guessesLeft--;
+        document.getElementById("guess-counter").innerHTML = guessesLeft;
         document.getElementById("current-word").innerHTML = answerArray;
-        if (answerArray.indexOf("_") == -1) {
-          document.getElementById("cartoon-name").innerHTML = "WIN WIN WIN WIN";
-          wins++;
-        }
-        else if (guessesLeft === 0) {
-          document.getElementById("cartoon-name").innerHTML = "LOSE LOSE LOSE LOSE";
-        }
 
+        if (guessesLeft <= 0) {
+          document.getElementById("cartoon-name").style.display = "block";
+          document.getElementById("cartoon-name").innerHTML = "LOSE LOSE LOSE LOSE";
+
+        }
+        else if (answerArray.indexOf("_") == -1) {
+          wins++;
+          document.getElementById("cartoon-name").style.display = "block";
+          document.getElementById("cartoon-name").innerHTML = "WIN WIN WIN WIN";
+          document.getElementById("win-counter").innerHTML = wins;
+
+        }
       }
+
     }
 
   }
 
 }
 
-// Function to check win
-// function checkWin() {
-
-//   if (answerArray.indexOf("_") == -1) {
-//     alert("you win!");
-//     wins++;
-//   }
-//   else if (guessesLeft === 0) {
-//     alert("you lose!");
-//   } console.log(answerArray);
-// }
 
 // Function to take user input
 document.onkeyup = function (event) {
   var userGuess = event.key.toLowerCase();
 
+
+if(document.getElementById("cartoon-name").style.display === "none"){
   updateGuess(userGuess);
+}
+
   console.log(answerArray);
   //checkWin();
   if (event.keyCode == 13) {

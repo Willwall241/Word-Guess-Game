@@ -26,7 +26,6 @@ function startGame() {
 
   // Set word to random pick from gameWords array
   word = gameWords[Math.floor(Math.random() * gameWords.length)];
-  console.log(word);
 
   // Set answerArray to empty array
   answerArray = [];
@@ -69,7 +68,6 @@ function updateGuess(guess) {
     for (var j = 0; j < word.length; j++) {
       if (word[j] === guess) {
         answerArray[j] = guess;
-        console.log(answerArray);
         guessesLeft--;
         document.getElementById("guess-counter").innerHTML = guessesLeft;
         document.getElementById("current-word").innerHTML = answerArray.join(" ").toUpperCase();
@@ -115,7 +113,7 @@ function checkWin() {
       updateGuess(userGuess);
     }
 
-    console.log(answerArray);
+    
     //checkWin();
     if (event.keyCode == 13) {
       startGame();
